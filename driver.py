@@ -2,7 +2,7 @@ import sys
 
 
 def main(argv):
-    print("xxxx")
+    print("Hello World!")
 
 
 if __name__ == "__main__":
