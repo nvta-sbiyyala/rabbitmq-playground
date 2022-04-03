@@ -121,6 +121,7 @@ venv.bak/
 
 ### idea ###
 .idea/
+out/
 
 ### *.iml ###
 *.iml
