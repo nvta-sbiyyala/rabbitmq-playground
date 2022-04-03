@@ -1,4 +1,5 @@
 import sys
+import time
 
 import pika
 
@@ -17,7 +18,7 @@ def produce(argv):
 
     # Publish
     channel.basic_publish(exchange="", routing_key="queue1", body=b"Hello world!")
-    print("[x] Sent Hello World")
+    print("Published message")
 
     # Close the connection, and that auto closes the channel
     connection.close()
@@ -26,3 +27,4 @@ def produce(argv):
 if __name__ == "__main__":
     while True:
         produce(sys.argv)
+        time.sleep(5)
