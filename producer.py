@@ -1,10 +1,9 @@
-import sys
 import time
 
 import pika
 
 
-def produce(argv):
+def produce(ctr):
     # create a connection, CN
     connection = pika.BlockingConnection(pika.ConnectionParameters('localhost'))
     # create a channel in CN, say CH
@@ -17,7 +16,7 @@ def produce(argv):
     channel.queue_declare(queue="queue1")
 
     # Publish
-    channel.basic_publish(exchange="", routing_key="queue1", body=b"Hello world!")
+    channel.basic_publish(exchange="", routing_key="queue1", body=bytes(f"Hello world #{ctr}", encoding="utf8"))
     print("Published message")
 
     # Close the connection, and that auto closes the channel
@@ -25,6 +24,8 @@ def produce(argv):
 
 
 if __name__ == "__main__":
+    counter = 1
     while True:
-        produce(sys.argv)
+        produce(counter)
         time.sleep(5)
+        counter += 1
