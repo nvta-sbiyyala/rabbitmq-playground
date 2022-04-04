@@ -20,6 +20,7 @@ def main():
 
     # Start consuming the message
     print("[*] waiting for the messages. To exit press Ctrl+C")
+    # Blocking call
     channel.start_consuming()
 
 
