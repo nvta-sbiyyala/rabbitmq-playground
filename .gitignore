@@ -126,3 +126,6 @@ out/
 ### *.iml ###
 *.iml
 .DS_Store
+
+### ignore material ###
+udemy-docs
