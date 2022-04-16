@@ -31,15 +31,6 @@ services:
     networks:
       - network
 
-  publisher:
-    # Identical to the consumer.
-    build: .
-    environment:
-      PYTHONUNBUFFERED: 1
-      AMQP_URL: 'amqp://rabbitmq?connection_attempts=5&retry_delay=5'
-    networks:
-      - network
-
 networks:
   # Declare our private network.  We must declare one for the magic
   # Docker DNS to work, but otherwise its default settings are fine.
