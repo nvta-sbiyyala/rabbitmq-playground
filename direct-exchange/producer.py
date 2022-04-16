@@ -2,6 +2,10 @@ import time
 
 import pika
 
+from config import get_logger
+
+logger = get_logger(__name__)
+
 
 def produce(ctr):
     # create a connection, CN
@@ -17,7 +21,7 @@ def produce(ctr):
 
     # Publish
     channel.basic_publish(exchange="", routing_key="queue1", body=bytes(f"Hello world #{ctr}", encoding="utf8"))
-    print("Published message")
+    logger.info("Published message")
 
     # Close the connection, and that auto closes the channel
     connection.close()
